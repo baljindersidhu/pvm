@@ -26,7 +26,6 @@ module.exports = class CommandRunner{
                     reject(error);
                     return;
                 }
-                // console.log(`stdout: ${stdout}`);
                 resolve(stdout);
             });
         })
