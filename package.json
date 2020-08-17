@@ -1,0 +1,36 @@
+{
+  "name": "pvm",
+  "version": "1.0.0",
+  "description": "This is a user interface for managing packages and dependencies installed via npm",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baljindersidhu/pvm.git"
+  },
+  "keywords": [
+    "npm",
+    "package",
+    "manager",
+    "nvm",
+    "node",
+    "ui",
+    "npm",
+    "ui"
+  ],
+  "author": "baljindersidhu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/baljindersidhu/pvm/issues"
+  },
+  "homepage": "https://github.com/baljindersidhu/pvm#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.1",
+    "should": "^13.2.3"
+  }
+}
