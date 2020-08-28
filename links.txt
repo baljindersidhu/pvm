@@ -1,0 +1,9 @@
+https://docs.npmjs.com/cli/explore.html
+https://docs.npmjs.com/cli/ls.html
+https://docs.npmjs.com/cli/outdated
+https://docs.npmjs.com/cli/search.html
+https://docs.npmjs.com/cli/update.html
+https://docs.npmjs.com/cli/version.html
+https://docs.npmjs.com/misc/semver
+https://docs.npmjs.com/cli/audit
+https://stackoverflow.com/questions/36172442/how-can-i-get-npm-start-at-a-different-directory
