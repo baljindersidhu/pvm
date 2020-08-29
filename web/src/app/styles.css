@@ -67,8 +67,16 @@ body{
     margin-top: 2vh;
 }
 
+.MarginTop4x{
+    margin-top: 4vh;
+}
+
 .MarginRight1-5x{
     margin-right: 1.5vw;
+}
+
+.MarginRight2x{
+    margin-right: 2vw;
 }
 
 .MarginBottom1x{
@@ -79,8 +87,16 @@ body{
     margin-bottom: 2vh;
 }
 
+.MarginBottom4x{
+    margin-bottom: 4vh;
+}
+
 .MarginLeft1-5x{
     margin-left: 1.5vw;
+}
+
+.MarginLeft9x{
+    margin-left: 9vw;
 }
 
 
