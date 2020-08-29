@@ -24,7 +24,6 @@ module.exports = class FileReader{
         });
 
         this.evaluateStats();
-        this.validateFilePath();
     }
 
     /**
@@ -35,27 +34,39 @@ module.exports = class FileReader{
      * and append it to filePath setting valid as true
      */
     async validateFilePath(){
-        if(this.stats.isFile() && this.filePath.endsWith(PACKAGE_FILE_NAME)){
-            this.valid = true;
-        } else if(this.stats.isDirectory()) {
-            let dir;
-            try{
-                const dir = await fs.promises.opendir(this.filePath);
-                let filesList = [];
-                for await (let dirent of dir){
-                    filesList.push(dirent.name);
+        let errored = false;
+        return new Promise(async (res, rej) => {
+            if(this.stats.isFile() && this.filePath.endsWith(PACKAGE_FILE_NAME)){
+                this.valid = true;
+            } else if(this.stats.isDirectory()) {
+                let dir;
+                try{
+                    const dir = await fs.promises.opendir(this.filePath);
+                    let filesList = [];
+                    for await (let dirent of dir){
+                        filesList.push(dirent.name);
+                    }
+                    
+                    if(filesList.includes(PACKAGE_FILE_NAME)){
+                        this.valid = true;
+                        this.filePath += (path.sep + PACKAGE_FILE_NAME);
+                    }else{
+                        errored = true;
+                    }
+                }catch(e){
+                    errored = true;
+                    console.log("Unexpected error occured while parsing package.json file", e);
+                }finally{
+                    if(dir && dir.close) dir.close();
                 }
-                
-                if(filesList.includes(PACKAGE_FILE_NAME)){
-                    this.valid = true;
-                    this.filePath += (path.sep + PACKAGE_FILE_NAME);
-                }
-            }catch(e){
-                console.log("Unexpected error occured while parsing package.json file", e);
-            }finally{
-                if(dir && dir.close) dir.close();
             }
-        }
+
+            if(errored){
+                rej();
+            }else{
+                res({ok: 1234});
+            }
+        })
     }
 
     /**

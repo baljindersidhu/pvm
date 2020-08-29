@@ -34,6 +34,10 @@ module.exports = class NPMUtils{
         return executeCommand.call(this, SIMUALTE_AUDIT_FIX);
     }
 
+    runAuditFix(){
+        return executeCommand.call(this, FIX_AUDIT);
+    }
+
     
 
     appendDirectoryPathPrefix(command){
